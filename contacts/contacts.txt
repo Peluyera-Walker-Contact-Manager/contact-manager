@@ -1,7 +1,8 @@
 Larry : 1
-Moe : 2
-Curly : 3
+Curly : 2
+Moe : 3
 Clifford : 4
 Fenny : 5
 Javascript : 6
 Happy : 7
+sad : 8

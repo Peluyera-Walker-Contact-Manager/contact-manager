@@ -56,6 +56,7 @@ public class Contacts {
 
         boolean flag = true;
 do {
+    System.out.println();
     System.out.println("Hello, welcome to the phone company. Please select a option below.");
 
     System.out.println(
@@ -91,11 +92,12 @@ do {
         for (String oneLine : fileInfo) {
             //When using bar character \\ is needed to escape its normal function
             String[] data = oneLine.split(" : ");
-            if (finalInput.equals(data[0])) {
+            if (finalInput.equals(data[0].toLowerCase())) {
                 System.out.println("Name | Phone Number\n" + "--------------------");
                 System.out.println(data[0] + " | " + data[1]);
 //                System.out.println((oneLine.split("\\/")[0].contains(finalInput)));
             } else {
+                System.out.println("Not found");
             }
         }
 
@@ -108,7 +110,7 @@ do {
 
         System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
         input1 = scanner.nextLine();
-        System.out.println(input1);
+        System.out.println("Contact successfully deleted");
 //
         String newStr = String.valueOf(fileInfo.remove(Integer.parseInt(input1) - 1));
         Files.write(
