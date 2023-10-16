@@ -1,10 +1,6 @@
-1Larry : 1
-Curly : 2
-Moe : 3
-Clifford : 4
-Fenny : 5
-Javascript : 6
-Happy : 7
-g : 4
-h : 2101230456
-Gerald : 1234567891
+1 : Larry : 1
+2 : Moe : 2
+3 : Clifford : 4
+4 : Fenny : 5
+5 : Javascript : 6
+6 : Happy : 7

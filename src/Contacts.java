@@ -24,7 +24,7 @@ public class Contacts {
             Files.createDirectories(dataDirectory);
         }
 
-        if (! Files.exists(dataFile)) {
+        if (!Files.exists(dataFile)) {
             Files.createFile(dataFile);
         }
 
@@ -57,45 +57,63 @@ public class Contacts {
         System.out.println("Hello, welcome to the phone company. Please select a option below.");
 
         System.out.println(
-                "1. View src.contacts.\n" +
-                "2. Add a new contact.\n" +
-                "3. Search a contact by name.\n" +
-                "4. Delete an existing contact.\n" +
-                "5. Exit.\n" +
-                "Enter an option (1, 2, 3, 4 or 5):\n");
+                "1. View all contacts.\n" +
+                        "2. Add a new contact.\n" +
+                        "3. Search a contact by name.\n" +
+                        "4. Delete an existing contact.\n" +
+                        "5. Exit.\n" +
+                        "Enter an option (1, 2, 3, 4 or 5):\n");
 
         String input1 = scanner.nextLine();
 
-        if ( input1.equals("1")) {
+        if (input1.equals("1")) {
             for (String oneLine : fileInfo) {
                 //When using bar character \\ is needed to escape its normal function
                 String[] data = oneLine.split(" : ");
-                System.out.println(data[0]);
-                System.out.println(data[1]);
+                System.out.println(data[0] + ":" + " " + data[1] + "-"+ data[2]);
                 ;
             }
-        } else if (input1.equals("2")){
+        } else if (input1.equals("2")) {
             System.out.println("What is their name and number?");
             input1 = scanner.nextLine();
 
             Files.write(
                     Paths.get("src", "contacts.txt"),
                     Arrays.asList(input1),// list with one item
-                   StandardOpenOption.APPEND
+                    StandardOpenOption.APPEND
             );
         } else if (input1.equals("3")){
             System.out.println("Who would you like to search?");
             input1 = scanner.nextLine();
-        } else if (input1.equals("4")){
+            String finalInput = input1;
+            for (String oneLine : fileInfo) {
+                //When using bar character \\ is needed to escape its normal function
+                String[] data = oneLine.split(" : ");
+                if (finalInput.equals(data[0])) {
+                    System.out.println(data[0] + " : " + data[1]);
+//                System.out.println((oneLine.split("\\/")[0].contains(finalInput)));
+                } else {
+                }
+            }
+
+        } else if (input1.equals("4")) {
             System.out.println("Who's number would you like to delete?");
-            input1 = scanner.nextLine();
-            String newStr = fileInfo.replace(input1, "");
+            for (String oneLine : fileInfo) {
+                String[] data = oneLine.split(" : ");
+                System.out.println(data[0] + ":" + " " + data[1] + "-"+ data[2]);
+            }
+
+                System.out.println("Please select a number corresponding wit the person you wish to delete?\n");
+                input1 = scanner.nextLine();
+                System.out.println(input1);
+//
+            String newStr = String.valueOf(fileInfo.remove(Integer.parseInt(input1)-1));
+            Files.write(
+                    Paths.get("src", "contacts.txt"),
+                    fileInfo);
         }
+        ;
 
-
-
-        };
-
-    }
+    }}
 
 
