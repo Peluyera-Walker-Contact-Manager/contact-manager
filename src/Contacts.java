@@ -28,13 +28,13 @@ public class Contacts {
             Files.createFile(dataFile);
         }
 
-        List<String> stooges = Arrays.asList("Larry : 1","Curly : 2","Moe : 3");
-
-        Files.write(dataFile, stooges);
-
-        List<String> myData = Arrays.asList("Clifford : 4", "Fenny : 5", "Javascript : 6", "Happy : 7");
-
-        Files.write(dataFile, myData, StandardOpenOption.APPEND);
+//        List<String> stooges = Arrays.asList("Larry : 1","Curly : 2","Moe : 3");
+//
+//        Files.write(dataFile, stooges);
+//
+//        List<String> myData = Arrays.asList("Clifford : 4", "Fenny : 5", "Javascript : 6", "Happy : 7");
+//
+//        Files.write(dataFile, myData, StandardOpenOption.APPEND);
 
 
 //        Files.write(
@@ -75,20 +75,36 @@ public class Contacts {
                 ;
             }
         } else if (input1.equals("2")){
-            System.out.println("What is thier name and number?");
+            System.out.println("What is their name and number?");
             input1 = scanner.nextLine();
 
             Files.write(
                     Paths.get("src", "contacts.txt"),
-                    Arrays.asList(input1), // list with one item
-                    StandardOpenOption.APPEND
-            );
+                    Arrays.asList(input1),// list with one item
+                   StandardOpenOption.APPEND
 
-        };
+            );
+        } else if (input1.equals("3")){
+
+        }
+
+
+//            List<String> stooges = Arrays.asList("Larry : 1","Curly : 2","Moe : 3");
+//
+//            Files.write(dataFile, stooges);
+//
+//            List<String> myData = Arrays.asList("Clifford : 4", "Fenny : 5", "Javascript : 6", "Happy : 7");
+//
+//            Files.write(dataFile, myData, StandardOpenOption.APPEND);
+//            List<String> myData = Arrays.asList("Clifford : 4", "Fenny : 5", "Javascript : 6", "Happy : 7");
+//
+//            Files.write(dataFile, myData, StandardOpenOption.APPEND);
+
+
 
 
         };
 
     }
 
-}
+

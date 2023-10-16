@@ -1,7 +1,10 @@
-Larry : 1
+1Larry : 1
 Curly : 2
 Moe : 3
 Clifford : 4
 Fenny : 5
 Javascript : 6
 Happy : 7
+g : 4
+h : 2101230456
+Gerald : 1234567891
