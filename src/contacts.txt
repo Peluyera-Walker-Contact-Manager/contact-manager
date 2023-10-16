@@ -1,6 +1,7 @@
-1 : Larry : 1
-2 : Moe : 2
-3 : Clifford : 4
-4 : Fenny : 5
-5 : Javascript : 6
-6 : Happy : 7
+Larry : 1
+Moe : 2
+Curly : 3
+Clifford : 4
+Fenny : 5
+Javascript : 6
+Happy : 7

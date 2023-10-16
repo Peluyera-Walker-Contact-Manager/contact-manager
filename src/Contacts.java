@@ -70,7 +70,7 @@ public class Contacts {
             for (String oneLine : fileInfo) {
                 //When using bar character \\ is needed to escape its normal function
                 String[] data = oneLine.split(" : ");
-                System.out.println(data[0] + ":" + " " + data[1] + "-"+ data[2]);
+                System.out.println(data[0] + " : "+ data[1]);
                 ;
             }
         } else if (input1.equals("2")) {
@@ -100,10 +100,10 @@ public class Contacts {
             System.out.println("Who's number would you like to delete?");
             for (String oneLine : fileInfo) {
                 String[] data = oneLine.split(" : ");
-                System.out.println(data[0] + ":" + " " + data[1] + "-"+ data[2]);
+                System.out.println(data[0] + " : "+ data[1]);
             }
 
-                System.out.println("Please select a number corresponding wit the person you wish to delete?\n");
+                System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
                 input1 = scanner.nextLine();
                 System.out.println(input1);
 //
