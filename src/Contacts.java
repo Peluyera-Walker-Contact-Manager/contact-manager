@@ -82,24 +82,15 @@ public class Contacts {
                     Paths.get("src", "contacts.txt"),
                     Arrays.asList(input1),// list with one item
                    StandardOpenOption.APPEND
-
             );
         } else if (input1.equals("3")){
-
+            System.out.println("Who would you like to search?");
+            input1 = scanner.nextLine();
+        } else if (input1.equals("4")){
+            System.out.println("Who's number would you like to delete?");
+            input1 = scanner.nextLine();
+            String newStr = fileInfo.replace(input1, "");
         }
-
-
-//            List<String> stooges = Arrays.asList("Larry : 1","Curly : 2","Moe : 3");
-//
-//            Files.write(dataFile, stooges);
-//
-//            List<String> myData = Arrays.asList("Clifford : 4", "Fenny : 5", "Javascript : 6", "Happy : 7");
-//
-//            Files.write(dataFile, myData, StandardOpenOption.APPEND);
-//            List<String> myData = Arrays.asList("Clifford : 4", "Fenny : 5", "Javascript : 6", "Happy : 7");
-//
-//            Files.write(dataFile, myData, StandardOpenOption.APPEND);
-
 
 
 
