@@ -58,8 +58,8 @@ public class CodeRunner {
             } else if (input1.equals("1")) {
 
 
-                System.out.println("     Name       | Phone Number      |");
-                System.out.println("     ---------- | ---------------   |");
+                System.out.println(" # |    Name       | Phone Number      |");
+                System.out.println("   |    ---------- | ---------------   |");
 
 
                 int count = 0;
@@ -68,7 +68,7 @@ public class CodeRunner {
                     String[] data = oneLine.split(", ");
                     String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
 
-                    System.out.printf("%15d | %15s | %14s    |\n",count, data[0],number);
+                    System.out.printf("%2d | %13s | %14s    |\n",count, data[0],number);
                 }
 
             } else if (input1.equals("2")) {
@@ -124,13 +124,14 @@ public class CodeRunner {
                     //When using bar character \\ is needed to escape its normal function
                     String[] data = oneLine.split(", ");
 
+                    int count = 0;
                     if (finalInput.equals(data[0].toLowerCase())) {
-                        System.out.println("     Name       | Phone Number      |");
-                        System.out.println("     ---------- | ---------------   |");
+                        System.out.println(" # |    Name       | Phone Number      |");
+                        System.out.println("   |    ---------- | ---------------   |");
 
                         String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
 
-                        System.out.printf("%15s | %14s    |\n",data[0], number );
+                        System.out.printf("%2d | %13s | %14s    |\n",count, data[0],number);
 
                     } else {
 
@@ -144,8 +145,8 @@ public class CodeRunner {
 
                 System.out.println("Who's number would you like to delete?");
 
-                System.out.println("     Name       | Phone Number      |");
-                System.out.println("     ---------- | ---------------   |");
+                System.out.println(" # |    Name       | Phone Number      |");
+                System.out.println("   |    ---------- | ---------------   |");
 
                 // loop to display contacts
                 int count = 0;
@@ -154,7 +155,7 @@ public class CodeRunner {
                     String[] data = oneLine.split(", ");
                     String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
 
-                    System.out.printf("%15d | %15s | %14s    |\n",count, data[0],number);
+                    System.out.printf("%2d | %13s | %14s    |\n",count, data[0],number);
                 }
 
                 //todo need to finish delete feature, need to figure out how to select a specific contact to delete
