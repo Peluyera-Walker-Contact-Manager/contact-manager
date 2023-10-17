@@ -158,18 +158,26 @@ public class CodeRunner {
                     System.out.printf("%2d | %13s | %14s    |\n",count, data[0],number);
                 }
 
-                //todo need to finish delete feature, need to figure out how to select a specific contact to delete
-                System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
-                input1 = scanner.nextLine();
-                System.out.println("Contact successfully deleted");
+                boolean num4 = true;
+                do {
+                    //todo need to finish delete feature, need to figure out how to select a specific contact to delete
+                    System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
+                    input1 = scanner.nextLine();
+                    if (Integer.parseInt(input1) < 0 || Integer.parseInt(input1) >= fileInfo.size() || input1.contains(" ")) {
 
-                // removes contact
-                String newStr = String.valueOf(fileInfo.remove(Integer.parseInt(input1) - 1));
-                Files.write(
-                        Paths.get(directory, filename),
-                        fileInfo);// list with one item
+                        System.out.println("Sorry that number is not on the list. Please selecet a number on the list.");
 
+                    } else {
+                        System.out.println("Contact successfully deleted");
 
+                        // removes contact
+                        String newStr = String.valueOf(fileInfo.remove(Integer.parseInt(input1) - 1));
+                        Files.write(
+                                Paths.get(directory, filename), fileInfo);
+                        num4 = false;
+                    }
+                }
+                while (num4);
                 // exits out of the loop
             } else if (input1.equals("5")) {
 
