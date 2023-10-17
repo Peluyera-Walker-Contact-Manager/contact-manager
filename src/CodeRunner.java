@@ -12,7 +12,6 @@ public class CodeRunner {
 
     public static void main(String[] args) throws IOException {
 
-
         Scanner scanner = new Scanner(System.in);
 
         String directory = "src/contacts/";
@@ -58,14 +57,18 @@ public class CodeRunner {
 
             } else if (input1.equals("1")) {
 
-                System.out.println("     Name       | Phone Number   |");
-                System.out.println("     ---------- | -----------    |");
+
+                System.out.println("     Name       | Phone Number      |");
+                System.out.println("     ---------- | ---------------   |");
 
                 for (String oneLine : fileInfo) {
 
                     String[] data = oneLine.split(", ");
-                    System.out.printf("%15s | %11s    |\n",data[0],data[1]);
+                    String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
+
+                    System.out.printf("%15s | %14s    |\n",data[0],number);
                 }
+
             } else if (input1.equals("2")) {
 
                 System.out.println("Enter name and number separated by a comma \",  \" followed by a \"space\"");
@@ -73,7 +76,7 @@ public class CodeRunner {
                 input1 = scanner.nextLine().toLowerCase();
 
                 //log to visualize input remove when fixed
-                System.out.println(input1.split(" ")[0]);
+                System.out.println(input1.split(", ")[0]);
 
                 if(!input1.contains(", ")){
 
@@ -88,6 +91,7 @@ public class CodeRunner {
 
                     if(input2.equals("y")){
 
+                        //todo BONUS
                         //todo need to finish
                         fileInfo.set(fileInfo.indexOf(input1),input1);
                     }
@@ -114,13 +118,14 @@ public class CodeRunner {
                     String[] data = oneLine.split(", ");
 
                     if (finalInput.equals(data[0].toLowerCase())) {
-                        System.out.println("     Name       | Phone Number  |");
-                        System.out.println("     ---------- | -----------   |");
+                        System.out.println("     Name       | Phone Number      |");
+                        System.out.println("     ---------- | ---------------   |");
 
-                        System.out.printf("%15s | %11s   |\n",data[0],data[1] );
+                        System.out.printf("%15s | %14s    |\n",data[0],data[1] );
 
                     } else {
 
+                        //todo no mention of this feature in the exercise requirements, just good UX
                         //todo need to refactor to sout not found message only once.
                         //System.out.println("Not found");
                     }
@@ -130,16 +135,17 @@ public class CodeRunner {
 
                 System.out.println("Who's number would you like to delete?");
 
-                System.out.println("     Name       | Phone Number  |");
-                System.out.println("     ---------- | -----------   |");
+                System.out.println("     Name       | Phone Number      |");
+                System.out.println("     ---------- | ---------------   |");
 
                 // loop to display contacts
                 for (String oneLine : fileInfo) {
                     String[] data = oneLine.split(", ");
 
-                    System.out.printf("%15s | %11s    |\n",data[0],data[1] );
+                    System.out.printf("%15s | %14s    |\n",data[0],data[1] );
                 }
 
+                //todo need to finish delete feature
                 System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
                 input1 = scanner.nextLine();
                 System.out.println("Contact successfully deleted");
