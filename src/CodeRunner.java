@@ -72,6 +72,8 @@ public class CodeRunner {
                 }
 
             } else if (input1.equals("2")) {
+                boolean num2 = true;
+                do {
 
                 System.out.println("Enter name and number separated by a comma \",  \" followed by a \"space\"");
 
@@ -105,8 +107,11 @@ public class CodeRunner {
                             Paths.get(directory, filename),
                             Arrays.asList(input1),// list with one item
                             StandardOpenOption.APPEND
+
                     );
-                }
+                    num2 = false;
+                }}
+                while (num2);
             } else if (input1.equals("3")) {
 
                 System.out.println("Enter name");
