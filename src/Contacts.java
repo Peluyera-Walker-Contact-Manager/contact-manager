@@ -72,7 +72,7 @@ do {
     if (input1.equals("1")) {
         System.out.println("Name | Phone Number\n" + "--------------------");
         for (String oneLine : fileInfo) {
-            String[] data = oneLine.split(" : ");
+            String[] data = oneLine.split(" ");
             System.out.println(data[0] + " | " + data[1]);
             ;
         }
@@ -91,7 +91,7 @@ do {
         String finalInput = input1;
         for (String oneLine : fileInfo) {
             //When using bar character \\ is needed to escape its normal function
-            String[] data = oneLine.split(" : ");
+            String[] data = oneLine.split(" ");
             if (finalInput.equals(data[0].toLowerCase())) {
                 System.out.println("Name | Phone Number\n" + "--------------------");
                 System.out.println(data[0] + " | " + data[1]);
