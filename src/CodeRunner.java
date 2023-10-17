@@ -120,26 +120,28 @@ public class CodeRunner {
 
                 String finalInput = input1;
 
-                for (String oneLine : fileInfo) {
-                    //When using bar character \\ is needed to escape its normal function
-                    String[] data = oneLine.split(", ");
-
-                    int count = 0;
-                    if (finalInput.equals(data[0].toLowerCase())) {
-                        System.out.println(" # |    Name       | Phone Number      |");
-                        System.out.println("   |    ---------- | ---------------   |");
-
-                        String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
-
-                        System.out.printf("%2d | %13s | %14s    |\n",count, data[0],number);
-
-                    } else {
-
-                        //todo no mention of this feature in the exercise requirements, just good UX
-                        //todo need to refactor to sout not found message only once.
-                        //System.out.println("Not found");
-                    }
-                }
+//                for (String oneLine : fileInfo) {
+//                    //When using bar character \\ is needed to escape its normal function
+//                    String[] data = oneLine.split(", ");
+//
+//                    int count = 0;
+//                    if (finalInput.equals(data[0].toLowerCase())) {
+//                        System.out.println(" # |    Name       | Phone Number      |");
+//                        System.out.println("   |    ---------- | ---------------   |");
+//
+//                        String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
+//
+//                        System.out.printf("%2d | %13s | %14s    |\n",count, data[0],number);
+//
+//                    } else {
+//
+//
+//
+//                        //todo no mention of this feature in the exercise requirements, just good UX
+//                        //todo need to refactor to sout not found message only once.
+//                        System.out.println("Not found");
+//                    }
+//                }
 
             } else if (input1.equals("4")) {
 
@@ -160,14 +162,17 @@ public class CodeRunner {
 
                 boolean num4 = true;
                 do {
-                    //todo need to finish delete feature, need to figure out how to select a specific contact to delete
                     System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
                     input1 = scanner.nextLine();
-                    if (Integer.parseInt(input1) < 0 || Integer.parseInt(input1) >= fileInfo.size() || input1.contains(" ")) {
+                    if (input1.matches("^[a-zA-z]+")) {
 
-                        System.out.println("Sorry that number is not on the list. Please selecet a number on the list.");
+                        System.out.println("Sorry, no names, please enter one of the shown numbers.");
+                    }
+                    else if (Integer.parseInt(input1) < 0 || Integer.parseInt(input1) > fileInfo.size()) {
 
-                    } else {
+                        System.out.println("Sorry that number is not on the list. Please select a number on the list.");
+                    }
+                    else if (Integer.parseInt(input1) >= 0 || Integer.parseInt(input1) <= fileInfo.size()) {
                         System.out.println("Contact successfully deleted");
 
                         // removes contact
