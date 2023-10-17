@@ -143,12 +143,13 @@ public class CodeRunner {
                 System.out.println("     ---------- | ---------------   |");
 
                 // loop to display contacts
+                int count = 0;
                 for (String oneLine : fileInfo) {
+                    count++;
                     String[] data = oneLine.split(", ");
-
                     String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
 
-                    System.out.printf("%15s | %14s    |\n",data[0],number );
+                    System.out.printf("%15d | %15s | %14s    |\n",count, data[0],number);
                 }
 
                 //todo need to finish delete feature, need to figure out how to select a specific contact to delete
@@ -159,8 +160,9 @@ public class CodeRunner {
                 // removes contact
                 String newStr = String.valueOf(fileInfo.remove(Integer.parseInt(input1) - 1));
                 Files.write(
-                        Paths.get("src", "contacts.txt"),
-                        fileInfo);
+                        Paths.get(directory, filename),
+                        fileInfo);// list with one item
+
 
                 // exits out of the loop
             } else if (input1.equals("5")) {
