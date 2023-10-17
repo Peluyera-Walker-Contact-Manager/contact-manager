@@ -81,7 +81,7 @@ public class CodeRunner {
                 if(!input1.contains(", ")){
 
                     System.out.println("\nInvalid Entry, please separate name and phone number with a \"comma\" -> \", \"");
-
+                    //todo BONUS
                     //todo need to fix
                 } else if(fileInfo.contains(input1.split(" ")[0])){
 
@@ -121,7 +121,9 @@ public class CodeRunner {
                         System.out.println("     Name       | Phone Number      |");
                         System.out.println("     ---------- | ---------------   |");
 
-                        System.out.printf("%15s | %14s    |\n",data[0],data[1] );
+                        String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
+
+                        System.out.printf("%15s | %14s    |\n",data[0], number );
 
                     } else {
 
@@ -142,10 +144,12 @@ public class CodeRunner {
                 for (String oneLine : fileInfo) {
                     String[] data = oneLine.split(", ");
 
-                    System.out.printf("%15s | %14s    |\n",data[0],data[1] );
+                    String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
+
+                    System.out.printf("%15s | %14s    |\n",data[0],number );
                 }
 
-                //todo need to finish delete feature
+                //todo need to finish delete feature, need to figure out how to select a specific contact to delete
                 System.out.println("Please select the number that corresponds with the person you wish to delete?\n");
                 input1 = scanner.nextLine();
                 System.out.println("Contact successfully deleted");
