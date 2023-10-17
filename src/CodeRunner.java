@@ -61,12 +61,14 @@ public class CodeRunner {
                 System.out.println("     Name       | Phone Number      |");
                 System.out.println("     ---------- | ---------------   |");
 
-                for (String oneLine : fileInfo) {
 
+                int count = 0;
+                for (String oneLine : fileInfo) {
+                    count++;
                     String[] data = oneLine.split(", ");
                     String number = data[1].replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");   //(123) 456-7890
 
-                    System.out.printf("%15s | %14s    |\n",data[0],number);
+                    System.out.printf("%15d | %15s | %14s    |\n",count, data[0],number);
                 }
 
             } else if (input1.equals("2")) {
