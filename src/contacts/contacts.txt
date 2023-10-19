@@ -17,6 +17,3 @@ peter, 5
 peter, 6
 peter, 7
 peter, 8
-peter, 9
-peter, 9
-peter, 9
